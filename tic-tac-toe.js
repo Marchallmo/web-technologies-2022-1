@@ -9,6 +9,8 @@ if (document.readyState === 'loading') {
 function init() {
     const moveEl = document.getElementById('move-value')
 
+    const gameResult = document.getElementById('game-result')
+
     const onMove = (isXTurn) => {
         let currentMove
 
@@ -21,10 +23,15 @@ function init() {
         moveEl.innerText = currentMove
     }
 
+    const onGameEnd = (result) => {
+        gameResult.innerText = result;
+    }
+
     const game = TicTacToe.init(
         {
             el: document.getElementById('tic-tac-toe'),
             onMove,
+            onGameEnd,
         }
     )
 

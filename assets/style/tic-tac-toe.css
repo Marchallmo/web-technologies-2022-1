@@ -45,3 +45,7 @@
 .tic-tac-toe__current-move {
     font-size: 2em;
 }
+
+.tic-tac-toe__game-result {
+    font-size: 2em;
+}
