@@ -15,19 +15,60 @@ export default class ListItems {
   }
   
   render() {
-    this.el.insertAdjacentElement('beforeend', this.renderParent(this.data))
+    this.el.insertAdjacentHTML('beforeend', this.renderParent(this.data))
   }
   
-  renderParent() {
-    // проверка hasChildren
-    
-    // render
-    
-    // if hasChildren renderParent()
+  renderParent(data) {
+    var listItems= '';
+
+    data.items.forEach(el =>{
+        if (el.hasChildren)
+            listItems += this.renderParent(el);
+        else
+            listItems += this.renderChildren(el);
+    })
+
+    return `
+      <div class="list-item list-item_open" data-parent> 
+        <div class="list-item__inner">
+          <img class="list-item__arrow"
+            src="./assets/img/chevron-down.png"
+            alt="arrow"
+            data-open
+          >
+          
+          <img class="list-item__folder"
+            src="./assets/img/folder.png"
+            alt="folder"
+          >
+
+          <span class="list-item__text">
+            ${data.name}
+          </span>
+        </div>
+
+        <div class="list-item__items">
+          <div class="list-item">
+            ${listItems}
+          </div>
+        </div>
+      </div>`
   }
   
-  renderChildren() {
-    
+  renderChildren(data) {
+    return `
+      <div class="list-item"> 
+        <div class="list-item__inner">
+          <img class="list-item__folder"
+            src="./assets/img/folder.png"
+            alt="folder"
+          >
+
+          <span class="list-item__text">
+            ${data.name}
+          </span>
+        </div>
+      </div>`
   }
   
   toggleItems(parent) {
