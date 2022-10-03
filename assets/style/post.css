@@ -1,0 +1,49 @@
+.post {
+    padding: 16px;
+    margin: 16px;
+
+    background-color: lightblue;
+
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+}
+
+.post-content {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.post-content__title {
+    margin: 0;
+}
+
+.comment-items {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    padding: 8px;
+    margin-top: 10px;
+
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+}
+
+.comment-item {
+    display: grid;
+    grid-template-columns: 35% 65%;
+
+    padding: 16px;
+    margin: 0;
+
+    background-color: blue;
+    color: white;
+}
+
+.user-info {
+
+}
