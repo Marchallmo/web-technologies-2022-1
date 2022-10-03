@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="ru">
 <?php
+date_default_timezone_set('Asia/Yekaterinburg');
 $title = 'Заголовок';
 $h1 = 'h1';
 $currentYear = date('Y');
